@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="lib/theme.css" />
+  <title>AI 浏览器助手 · 隐私政策</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; color: #1f2329; line-height: 1.75;
+      background: #f7f8fa;
+    }
+    .wrap { background: #fff; border: 1px solid #eceef1; border-radius: 14px; padding: 28px 30px 34px; box-shadow: 0 1px 3px rgba(15,23,42,.08); }
+    h1 { font-size: 22px; margin: 0 0 2px; }
+    .app-name { color: #2563eb; }
+    .updated { color: #8a8f99; font-size: 13px; margin-bottom: 18px; }
+    h2 { font-size: 17px; margin: 30px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #eef2f7; }
+    h3 { font-size: 15px; margin: 22px 0 6px; color: #111827; }
+    p { margin: 8px 0; font-size: 14px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; font-size: 14px; }
+    strong { color: #111827; }
+    code { background: #eef2f7; padding: 1px 6px; border-radius: 5px; font-size: 12.5px; color: #b91c1c; }
+    .lang-head { display: flex; align-items: center; gap: 10px; margin-top: 34px; }
+    .lang-badge { background: #2563eb; color: #fff; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; }
+    .contact { background: #f4f6f9; border: 1px solid #e3e5e9; border-radius: 10px; padding: 12px 16px; margin-top: 14px; font-size: 14px; }
+    .back { display: inline-block; margin-top: 26px; color: #2563eb; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .back:hover { text-decoration: underline; }
+    .divider { height: 1px; background: #e3e5e9; margin: 4px 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1><span class="app-name">AI 浏览器助手</span> · 隐私政策</h1>
+    <div class="updated">Privacy Policy / AI Browser Assistant · 最后更新：2026-09-09</div>
+
+    <p><strong>我们（开发者）不收集、不存储、不上传你的任何个人数据。</strong>本扩展所有数据处理均在你的浏览器本地完成，除你主动配置的模型服务商与腾讯 ima 知识库外，没有任何数据离开你的设备发往开发者。</p>
+
+    <div class="contact">
+      📮 对本政策有疑问：<code>sdjy@ai-tokens.cn</code>
+    </div>
+
+    <!-- ============ 中文 ============ -->
+    <div class="lang-head"><span class="lang-badge">中文</span><h2 style="border:none;margin:0;padding:0;">我们如何处理你的数据</h2></div>
+
+    <h3>1. 我们收集什么</h3>
+    <p><strong>我们（开发者）不收集、不存储、不上传你的任何个人数据。</strong></p>
+    <p>本扩展在本地处理所有数据：</p>
+    <ul>
+      <li><strong>API Key / Base URL / 模型名</strong>：仅保存在你浏览器的 <code>chrome.storage.local</code>（本地），绝不上传到任何第三方服务器。</li>
+      <li><strong>网页正文、选中文本、截图</strong>：仅在你本地处理，除「发送给你自己配置的大模型服务商 / ima 知识库」外，不会上传给开发者。</li>
+      <li><strong>知识库内容</strong>：本扩展<strong>不再使用本地 IndexedDB 存储</strong>。知识库功能由<strong>腾讯 ima</strong> 提供——你在设置中自行启用并填写 ima 的 Client ID / API Key 后，保存的资料与检索请求会由浏览器后台直接发送到 <strong>ima 开放接口（ima.qq.com）</strong>，存入你自己的 ima 账号。未启用该功能时，不会产生任何 ima 相关请求。</li>
+      <li><strong>端侧 AI（Prompt / Translator API）</strong>：在支持该能力的浏览器上，总结/翻译等推理完全在本地完成，零云端成本、零外传。</li>
+    </ul>
+
+    <h3>2. 数据如何发送给大模型</h3>
+    <p>当你发起分析/总结/转写时，扩展会把<strong>所请求的网页内容（正文/图片/视频帧/音频）</strong>通过浏览器后台 Service Worker 发送给<strong>你在设置中自行填写的大模型服务商端点</strong>（OpenAI Compatible 网关）。</p>
+    <ul>
+      <li>发送目标完全由你配置（默认 <code>https://api.openai.com/v1</code>，可改为任意兼容端点）。</li>
+      <li>除「你主动提交的内容」与「你的 API Key（用于鉴权）」外，不附带任何额外个人信息。</li>
+      <li>开发者无法看到、也无法拦截这些内容——请求直接由你的浏览器发往你选择的服务商。</li>
+    </ul>
+
+    <h3>3. 权限说明</h3>
+    <ul>
+      <li><code>storage</code>：保存你的配置（仅本地）。</li>
+      <li><code>activeTab</code> / <code>tabs</code> / <code>scripting</code>：在<strong>你主动触发</strong>时读取当前标签页正文、列标签页、注入分析 UI、对当前页截图。</li>
+      <li><code>sidePanel</code>：提供侧边栏沉浸式面板。</li>
+      <li><code>tabCapture</code>：仅在侧边栏「音频转写」功能中，录制<strong>当前标签页</strong>音频并提交给你配置的 Whisper 端点。</li>
+      <li><code>contextMenus</code>：右键菜单快捷入口。</li>
+      <li><code>host_permissions: &lt;all_urls&gt;</code>：用于向各网站注入划词/视频分析 UI，以及向你的 API 端点发起请求（规避网页 CSP/CORS）。</li>
+    </ul>
+    <p>我们只在我们明确需要时才访问数据，且<strong>绝不</strong>在后台静默收集。</p>
+
+    <h3>4. 第三方服务</h3>
+    <p>本扩展本身不内置任何第三方追踪/统计 SDK。你选择的大模型服务商受其各自隐私政策约束，请自行查阅。</p>
+
+    <h3>5. 你的权利</h3>
+    <p>数据全部存于你本地，你可通过「设置 → 清除」或卸载扩展随时删除。我们无从访问，故无法代你删除。</p>
+
+    <h3>6. 联系方式</h3>
+    <p>如对本政策有疑问：<code>sdjy@ai-tokens.cn</code></p>
+
+    <div class="divider"></div>
+
+    <!-- ============ English ============ -->
+    <div class="lang-head"><span class="lang-badge">English</span><h2 style="border:none;margin:0;padding:0;">How we handle your data</h2></div>
+
+    <h3>1. What we collect</h3>
+    <p><strong>We (the developer) do not collect, store, or upload any of your personal data.</strong></p>
+    <p>Everything is processed locally in your browser:</p>
+    <ul>
+      <li><strong>API Key / Base URL / model name</strong>: stored only in your browser's <code>chrome.storage.local</code>. Never uploaded to any third-party server.</li>
+      <li><strong>Page text, selected text, screenshots</strong>: processed locally; never uploaded to the developer, except when sent to the model provider or the ima knowledge base you configured yourself.</li>
+      <li><strong>Knowledge-base content</strong>: this extension <strong>no longer stores anything in local IndexedDB</strong>. The knowledge-base feature is provided by <strong>Tencent ima</strong> — once you enable it and enter your own ima Client ID / API Key, saved notes and search queries are sent from the browser background directly to the <strong>ima Open API (ima.qq.com)</strong> and stored in your own ima account. No ima request is made while the feature is disabled.</li>
+      <li><strong>On-device AI (Prompt / Translator API)</strong>: when your browser supports it, summarization/translation runs entirely on-device — zero cloud cost, zero transmission.</li>
+    </ul>
+
+    <h3>2. How data is sent to the model</h3>
+    <p>When you start an analysis/summary/transcription, the extension sends <strong>the content you requested (page text / image / video frame / audio)</strong> through the background Service Worker to <strong>the model provider endpoint you configured yourself</strong> (OpenAI Compatible gateway).</p>
+    <ul>
+      <li>The destination is fully controlled by you (default <code>https://api.openai.com/v1</code>, can be changed to any compatible endpoint).</li>
+      <li>Aside from "the content you submit" and "your API Key (for auth)", no extra personal information is attached.</li>
+      <li>The developer cannot see or intercept this content — requests go directly from your browser to the provider you chose.</li>
+    </ul>
+
+    <h3>3. Permissions</h3>
+    <ul>
+      <li><code>storage</code>: save your config (local only).</li>
+      <li><code>activeTab</code> / <code>tabs</code> / <code>scripting</code>: read the active tab's text, list tabs, inject the analysis UI, and capture the current page — only when you trigger it.</li>
+      <li><code>sidePanel</code>: provide the side-panel immersive mode.</li>
+      <li><code>tabCapture</code>: only used by the side-panel "audio transcription" feature to record the <strong>current tab's</strong> audio and send it to your configured Whisper endpoint.</li>
+      <li><code>contextMenus</code>: right-click shortcut entries.</li>
+      <li><code>host_permissions: &lt;all_urls&gt;</code>: inject selection/video UI into sites and call your API endpoint (bypassing page CSP/CORS).</li>
+    </ul>
+    <p>We access data only when clearly needed, and <strong>never</strong> collect silently in the background.</p>
+
+    <h3>4. Third-party services</h3>
+    <p>The extension itself bundles no third-party tracking/analytics SDK. The model provider you choose is governed by its own privacy policy.</p>
+
+    <h3>5. Your rights</h3>
+    <p>All data lives on your device; delete it anytime via Settings → Clear, or by uninstalling. We cannot access it and therefore cannot delete it on your behalf.</p>
+
+    <h3>6. Contact</h3>
+    <p>Questions about this policy: <code>sdjy@ai-tokens.cn</code></p>
+
+    <a class="back" href="options.html">← 返回设置</a>
+  </div>
+</body>
+</html>
